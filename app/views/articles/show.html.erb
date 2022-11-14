@@ -1,0 +1,24 @@
+<div class="navbar navbar-light bg-light p-3 d-flex justify-content-between border-bottom">
+  <h4>Wikinimous</h4>
+</div>
+
+<div class="container">
+  <h1 class="my-3"> <%= @article.title %></h1>
+
+  <div class="icons">
+    <i class="fa-solid fa-house"></i>
+      <%= link_to "Home", articles_path %>
+    <i class="fa-regular fa-pen-to-square"></i>
+      <%= link_to "Edit", edit_article_path %>
+    <i class="fa-solid fa-trash-can"></i>
+      <%= link_to "Delete",
+        article_path(@article),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete?"}
+      %>
+  </div>
+
+  <p class="my-5">
+    <%= @article.content %>
+  </p>
+
+</div>
